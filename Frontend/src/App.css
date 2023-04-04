@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #242424;
+  padding-top: 100px;
+  font-family: monospace;
+  color: white;
+}
+
+.App h1 {
+  font-size: 40px;
+}
+
+.App h2 {
+  font-size: 40px;
+}
