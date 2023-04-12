@@ -7,9 +7,21 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import data from "./data";
 
 function App() {
   const [value, setValue] = useState("");
+  const [filteredData, setFilteredData] = useState(data);
+
+  const handleSearch = (value) => {
+    setValue(value);
+    setFilteredData(
+      data.filter((item) => {
+        return item.name.toLowerCase().includes(value.toLowerCase());
+      })
+    );
+  };
+
 
   return (
     <div className='App'>
@@ -18,143 +30,32 @@ function App() {
       <Input
         id='standard-adornment-amount'
         endAdornment={<SearchIcon />}
-        onChange={(event) => setValue(event.target.value)}
+        onChange={(event) => handleSearch(event.target.value)}
       />
       <p>this is the output the search bar: {value} </p>
       <div className='cards'>
-        <Card sx={{ maxWidth: 345 }}>
-          <CardActionArea>
-            <CardMedia
-              component='img'
-              height='150'
-              image='/static/images/cards/contemplative-reptile.jpg'
-              alt='green iguana'
-            />
-            <CardContent>
-              <Typography gutterBottom variant='h5' component='div'>
-                Lizard
-              </Typography>
-              <Typography variant='body2' color='text.secondary'>
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-        <Card sx={{ maxWidth: 345 }}>
-          <CardActionArea>
-            <CardMedia
-              component='img'
-              height='140'
-              image='/static/images/cards/contemplative-reptile.jpg'
-              alt='green iguana'
-            />
-            <CardContent>
-              <Typography gutterBottom variant='h5' component='div'>
-                Lizard
-              </Typography>
-              <Typography variant='body2' color='text.secondary'>
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-        <Card sx={{ maxWidth: 345 }}>
-          <CardActionArea>
-            <CardMedia
-              component='img'
-              height='140'
-              image='/static/images/cards/contemplative-reptile.jpg'
-              alt='green iguana'
-            />
-            <CardContent>
-              <Typography gutterBottom variant='h5' component='div'>
-                Lizard
-              </Typography>
-              <Typography variant='body2' color='text.secondary'>
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-        <Card sx={{ maxWidth: 345 }}>
-          <CardActionArea>
-            <CardMedia
-              component='img'
-              height='140'
-              image='/static/images/cards/contemplative-reptile.jpg'
-              alt='green iguana'
-            />
-            <CardContent>
-              <Typography gutterBottom variant='h5' component='div'>
-                Lizard
-              </Typography>
-              <Typography variant='body2' color='text.secondary'>
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-        <Card sx={{ maxWidth: 345 }}>
-          <CardActionArea>
-            <CardMedia
-              component='img'
-              height='140'
-              image='/static/images/cards/contemplative-reptile.jpg'
-              alt='green iguana'
-            />
-            <CardContent>
-              <Typography gutterBottom variant='h5' component='div'>
-                Lizard
-              </Typography>
-              <Typography variant='body2' color='text.secondary'>
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-        <Card sx={{ maxWidth: 345 }}>
-          <CardActionArea>
-            <CardMedia
-              component='img'
-              height='140'
-              image='/static/images/cards/contemplative-reptile.jpg'
-              alt='green iguana'
-            />
-            <CardContent>
-              <Typography gutterBottom variant='h5' component='div'>
-                Lizard
-              </Typography>
-              <Typography variant='body2' color='text.secondary'>
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-        <Card sx={{ maxWidth: 345 }}>
-          <CardActionArea>
-            <CardMedia
-              component='img'
-              height='140'
-              image='/static/images/cards/contemplative-reptile.jpg'
-              alt='green iguana'
-            />
-            <CardContent>
-              <Typography gutterBottom variant='h5' component='div'>
-                Lizard
-              </Typography>
-              <Typography variant='body2' color='text.secondary'>
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
+        {filteredData.map((item) => {
+          return (
+            <Card sx={{ maxWidth: 345 }} key={item.id}>
+              <CardActionArea>
+                <CardMedia
+                  component='img'
+                  height='150'
+                  image={item.image}
+                  alt='green iguana'
+                />
+                <CardContent>
+                  <Typography gutterBottom variant='h5' component='div'>
+                    {item.name}
+                  </Typography>
+                  <Typography variant='body2' color='text.secondary'>
+                    {item.description}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          );
+        })}
       </div>
     </div>
   );
