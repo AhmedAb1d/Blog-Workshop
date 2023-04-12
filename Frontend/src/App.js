@@ -7,11 +7,22 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import Modal from "@mui/material/Modal";
+import Box from "@mui/material/Box";
 import data from "./data";
 
 function App() {
   const [value, setValue] = useState("");
   const [filteredData, setFilteredData] = useState(data);
+  const [open, setOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
+
+  const handleOpen = (item) => {
+    setOpen(true);
+    setSelectedItem(item);
+  };
+
+  const handleClose = () => setOpen(false);
 
   const handleSearch = (value) => {
     setValue(value);
@@ -21,7 +32,6 @@ function App() {
       })
     );
   };
-
 
   return (
     <div className='App'>
@@ -37,7 +47,7 @@ function App() {
         {filteredData.map((item) => {
           return (
             <Card sx={{ maxWidth: 345 }} key={item.id}>
-              <CardActionArea>
+              <CardActionArea onClick={() => handleOpen(item)}>
                 <CardMedia
                   component='img'
                   height='150'
@@ -56,6 +66,21 @@ function App() {
             </Card>
           );
         })}
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby='modal-modal-title'
+          aria-describedby='modal-modal-description'
+        >
+          <Box className='modal-container'>
+            <Typography id='modal-modal-title' variant='h6' component='h2'>
+              {selectedItem.name}
+            </Typography>
+            <Typography id='modal-modal-description' sx={{ mt: 2 }}>
+              {selectedItem.description}
+            </Typography>
+          </Box>
+        </Modal>
       </div>
     </div>
   );

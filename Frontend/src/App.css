@@ -24,3 +24,13 @@
   gap: 20px;
   height: 400px;
 }
+
+.modal-container {
+  position: absolute;
+  top: 50%;
+  Left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: aliceblue;
+  border-radius: 10px;
+  padding: 20px;
+}
