@@ -27,7 +27,7 @@ function App() {
             <CardMedia
               component='img'
               height='150'
-              image='/static/images/cards/contemplative-reptile.jpg'
+              image='https://mcdn.wallpapersafari.com/medium/80/18/LPsFxU.jpg'
               alt='green iguana'
             />
             <CardContent>
@@ -46,7 +46,7 @@ function App() {
             <CardMedia
               component='img'
               height='140'
-              image='/static/images/cards/contemplative-reptile.jpg'
+              image='https://mcdn.wallpapersafari.com/medium/80/18/LPsFxU.jpg'
               alt='green iguana'
             />
             <CardContent>
@@ -65,7 +65,7 @@ function App() {
             <CardMedia
               component='img'
               height='140'
-              image='/static/images/cards/contemplative-reptile.jpg'
+              image='https://mcdn.wallpapersafari.com/medium/80/18/LPsFxU.jpg'
               alt='green iguana'
             />
             <CardContent>
@@ -84,7 +84,7 @@ function App() {
             <CardMedia
               component='img'
               height='140'
-              image='/static/images/cards/contemplative-reptile.jpg'
+              image='https://mcdn.wallpapersafari.com/medium/80/18/LPsFxU.jpg'
               alt='green iguana'
             />
             <CardContent>
@@ -103,7 +103,7 @@ function App() {
             <CardMedia
               component='img'
               height='140'
-              image='/static/images/cards/contemplative-reptile.jpg'
+              image='https://mcdn.wallpapersafari.com/medium/80/18/LPsFxU.jpg'
               alt='green iguana'
             />
             <CardContent>
@@ -122,7 +122,7 @@ function App() {
             <CardMedia
               component='img'
               height='140'
-              image='/static/images/cards/contemplative-reptile.jpg'
+              image='https://mcdn.wallpapersafari.com/medium/80/18/LPsFxU.jpg'
               alt='green iguana'
             />
             <CardContent>
@@ -141,7 +141,7 @@ function App() {
             <CardMedia
               component='img'
               height='140'
-              image='/static/images/cards/contemplative-reptile.jpg'
+              image='https://mcdn.wallpapersafari.com/medium/80/18/LPsFxU.jpg'
               alt='green iguana'
             />
             <CardContent>
